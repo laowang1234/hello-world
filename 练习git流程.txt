@@ -1,0 +1,46 @@
+git实现本地与远程仓库交互的基本流程（git bash中操作）
+
+一。建立私钥，实现端对端的单线交互
+
+1.检查是否存在私钥。
+ 
+	输入ls -al ~/.ssh 
+
+2.绑定github账号邮箱创建私钥。
+	
+	输入ssh-keygen -t rsa -b 4096 -C "git_email"
+
+3.复制到剪切板。
+	
+	输入clip < ~/.ssh/id_rsa.pub
+
+4.进入github账号》在settings中》找到ssh》选中newAdd》将复制好的内容粘贴进去确认即可。
+
+
+5.此刻就可以使用git@目标链接代替https@目标链接。
+
+二。git常用的命令行操作 工作区--暂存区--远程仓库区
+
+1、git clone  从远程克隆文件库
+2、git add .  将代码从工作区提交到暂存区
+3、git comment -m "提交说明"   必须紧接着填写提交说明
+4、git push origin maser  推送到github上本库的master分支更新代码
+5、git pull origin master 从master分支拉取同步代码
+
+三。另外，
+1.git status 查看git操作状态
+2.git rm filename 删除文件
+3.git branch/checkout/merge  创建分支、切换分支、合并分支
+4.git log 查看日志
+5.git reset 版本回退
+6.git reflog 查看git命令操作历史
+
+四。绑定git的账户和用户名
+
+git config --global user.email 'git账户email'
+
+git config --global user.name 'github账户名'
+
+
+
+
